@@ -1,0 +1,1 @@
+{"uuid":"d315642a-7547-4881-a5c2-eca97ddddf9c","name":"tests.ExcelLoginTestData.setUp","children":["a0216f6a-fa3f-4df9-8333-0c4fadd7d801"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1772549353562,"stop":1772549363420}],"afters":[],"start":1772549353561,"stop":1772549363420}
