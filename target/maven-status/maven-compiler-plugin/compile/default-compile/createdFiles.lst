@@ -1,5 +1,0 @@
-pages\OrderConfirmationPage.class
-base\BasePage.class
-config\ConfigReader.class
-base\DriverFactory.class
-utils\ScreenshotUtil.class
