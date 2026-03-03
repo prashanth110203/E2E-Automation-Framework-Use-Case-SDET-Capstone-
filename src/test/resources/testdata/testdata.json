@@ -1,0 +1,14 @@
+[
+  {
+    "testCase": "Valid Login",
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "expectedResult": "success"
+  },
+  {
+    "testCase": "Invalid Login",
+    "username": "invalid_user",
+    "password": "wrong_password",
+    "expectedResult": "failed"
+  }
+]
