@@ -64,21 +64,21 @@ pipeline {
                 echo 'Stage 4: Publishing test reports'
                 echo '========================================='
                 
-                // Publish TestNG Results
-                testNG reportFilesPattern: '**/testng-results.xml'
+                // Publish JUnit Test Results (built-in)
+                junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
                 
-                // Publish HTML Report
+                // Publish HTML Report (Extent Report)
                 publishHTML([
                     allowMissing: true,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
                     reportDir: 'reports',
                     reportFiles: '*.html',
-                    reportName: 'Extent Report'
+                    reportName: 'Extent Test Report'
                 ])
                 
                 // Archive Artifacts
-                archiveArtifacts artifacts: 'reports/**,screenshots/**,logs/**', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'reports/**,screenshots/**,logs/**,target/surefire-reports/**', allowEmptyArchive: true
             }
         }
     }
