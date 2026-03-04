@@ -1,0 +1,185 @@
+2026-03-03 17:22:13.232 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:22:13.236 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 17:22:13.237 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:22:14.367 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:23:36.142 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:23:36.146 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 17:23:36.147 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:23:37.275 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:23:42.585 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:23:42.585 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:23:42.600 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:23:42.600 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:23:42.771 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:23:42.774 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:23:42.774 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:23:43.427 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:24:00.662 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:24:00.663 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:24:00.667 [main] INFO  tests.BaseTest - Test: Invalid Login Started
+2026-03-03 17:24:00.675 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:24:00.675 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:24:00.878 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:26:11.321 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:26:11.324 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 17:26:11.324 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:26:12.464 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:26:24.114 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:26:24.114 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:26:24.122 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:26:24.122 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:26:24.294 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:26:24.295 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:26:24.297 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:26:24.959 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:26:50.397 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:26:50.397 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:26:50.397 [main] INFO  tests.BaseTest - Test: Invalid Login Started
+2026-03-03 17:26:50.400 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:26:50.400 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:26:50.525 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:41:06.785 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 17:41:06.787 [main] INFO  listeners.TestListener - Test Suite Started: Login Tests
+2026-03-03 17:41:06.787 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 17:41:06.789 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 17:41:06.908 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:41:06.911 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:41:08.047 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:41:08.428 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:41:08.429 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:41:08.432 [main] INFO  listeners.TestListener - ----------------------------------------
+2026-03-03 17:41:08.432 [main] INFO  listeners.TestListener - Test Started: testValidLogin
+2026-03-03 17:41:08.432 [main] INFO  listeners.TestListener - ----------------------------------------
+2026-03-03 17:41:08.443 [main] INFO  tests.BaseTest - Test: Valid Login Started
+2026-03-03 17:41:08.444 [main] INFO  base.BasePage - Performing login with username: standard_user
+2026-03-03 17:41:08.444 [main] INFO  base.BasePage - Entering username: standard_user
+2026-03-03 17:41:08.610 [main] INFO  base.BasePage - Typed text: standard_user
+2026-03-03 17:41:08.610 [main] INFO  base.BasePage - Entering password
+2026-03-03 17:41:08.723 [main] INFO  base.BasePage - Typed text: secret_sauce
+2026-03-03 17:41:08.724 [main] INFO  base.BasePage - Clicking login button
+2026-03-03 17:41:18.868 [main] INFO  base.BasePage - Clicked on element: Proxy element for: DefaultElementLocator 'By.id: login-button'
+2026-03-03 17:41:19.003 [main] INFO  base.BasePage - Retrieved text: Products
+2026-03-03 17:41:19.005 [main] INFO  tests.BaseTest - Test: Valid Login Completed Successfully
+2026-03-03 17:41:19.007 [main] INFO  listeners.TestListener - Test Passed: testValidLogin
+2026-03-03 17:41:19.009 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:41:19.009 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:41:19.172 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:41:19.177 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:41:19.178 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:41:20.020 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:41:20.375 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:41:20.375 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:41:20.375 [main] INFO  listeners.TestListener - ----------------------------------------
+2026-03-03 17:41:20.375 [main] INFO  listeners.TestListener - Test Started: testInvalidLogin
+2026-03-03 17:41:20.375 [main] INFO  listeners.TestListener - ----------------------------------------
+2026-03-03 17:41:20.377 [main] INFO  tests.BaseTest - Test: Invalid Login Started
+2026-03-03 17:41:20.378 [main] INFO  base.BasePage - Performing login with username: invalid_user
+2026-03-03 17:41:20.378 [main] INFO  base.BasePage - Entering username: invalid_user
+2026-03-03 17:41:20.545 [main] INFO  base.BasePage - Typed text: invalid_user
+2026-03-03 17:41:20.547 [main] INFO  base.BasePage - Entering password
+2026-03-03 17:41:20.676 [main] INFO  base.BasePage - Typed text: wrong_password
+2026-03-03 17:41:20.676 [main] INFO  base.BasePage - Clicking login button
+2026-03-03 17:41:20.776 [main] INFO  base.BasePage - Clicked on element: [[ChromeDriver: chrome on windows (1e0fc8aed41676d096b08d641e33ab55)] -> id: login-button]
+2026-03-03 17:41:20.813 [main] INFO  tests.BaseTest - Test: Invalid Login Completed Successfully
+2026-03-03 17:41:20.814 [main] INFO  listeners.TestListener - Test Passed: testInvalidLogin
+2026-03-03 17:41:20.815 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:41:20.815 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:41:21.007 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:41:21.009 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 17:41:21.009 [main] INFO  listeners.TestListener - Test Suite Finished: Login Tests
+2026-03-03 17:41:21.009 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 17:41:21.197 [main] INFO  listeners.TestListener - Extent Report generated at: reports\AutomationTestReport_20260303_174106.html
+2026-03-03 17:57:04.954 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:57:04.957 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 17:57:04.957 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:57:05.995 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:57:11.724 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:57:11.724 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:57:11.731 [main] INFO  tests.BaseTest - Test: Valid Login Started
+2026-03-03 17:57:11.732 [main] INFO  base.BasePage - Performing login with username: standard_user
+2026-03-03 17:57:11.732 [main] INFO  base.BasePage - Entering username: standard_user
+2026-03-03 17:57:11.889 [main] INFO  base.BasePage - Typed text: standard_user
+2026-03-03 17:57:11.889 [main] INFO  base.BasePage - Entering password
+2026-03-03 17:57:12.033 [main] INFO  base.BasePage - Typed text: secret_sauce
+2026-03-03 17:57:12.033 [main] INFO  base.BasePage - Clicking login button
+2026-03-03 17:57:22.199 [main] INFO  base.BasePage - Clicked on element: Proxy element for: DefaultElementLocator 'By.id: login-button'
+2026-03-03 17:57:22.305 [main] INFO  base.BasePage - Retrieved text: Products
+2026-03-03 17:57:22.307 [main] INFO  tests.BaseTest - Test: Valid Login Completed Successfully
+2026-03-03 17:57:22.311 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:57:22.311 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:57:22.517 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 17:57:22.519 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 17:57:22.520 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 17:57:23.217 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 17:57:25.492 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 17:57:25.492 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 17:57:25.495 [main] INFO  tests.BaseTest - Test: Invalid Login Started
+2026-03-03 17:57:25.495 [main] INFO  base.BasePage - Performing login with username: invalid_user
+2026-03-03 17:57:25.495 [main] INFO  base.BasePage - Entering username: invalid_user
+2026-03-03 17:57:25.674 [main] INFO  base.BasePage - Typed text: invalid_user
+2026-03-03 17:57:25.674 [main] INFO  base.BasePage - Entering password
+2026-03-03 17:57:25.795 [main] INFO  base.BasePage - Typed text: wrong_password
+2026-03-03 17:57:25.795 [main] INFO  base.BasePage - Clicking login button
+2026-03-03 17:57:25.936 [main] INFO  base.BasePage - Clicked on element: [[ChromeDriver: chrome on windows (7233e0eb0bcf28d619fbfb0999ff6bc6)] -> id: login-button]
+2026-03-03 17:57:25.986 [main] INFO  tests.BaseTest - Test: Invalid Login Completed Successfully
+2026-03-03 17:57:25.988 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 17:57:25.988 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 17:57:26.142 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 19:10:41.317 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 19:10:41.322 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 19:10:41.322 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 19:10:50.269 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 19:10:50.669 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 19:10:50.669 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 19:10:50.679 [main] INFO  tests.BaseTest - Test: Valid Login Started
+2026-03-03 19:10:50.679 [main] INFO  base.BasePage - Performing login with username: standard_user
+2026-03-03 19:10:50.680 [main] INFO  base.BasePage - Entering username: standard_user
+2026-03-03 19:10:50.823 [main] INFO  base.BasePage - Typed text: standard_user
+2026-03-03 19:10:50.823 [main] INFO  base.BasePage - Entering password
+2026-03-03 19:10:50.964 [main] INFO  base.BasePage - Typed text: secret_sauce
+2026-03-03 19:10:50.964 [main] INFO  base.BasePage - Clicking login button
+2026-03-03 19:11:01.099 [main] INFO  base.BasePage - Clicked on element: Proxy element for: DefaultElementLocator 'By.id: login-button'
+2026-03-03 19:11:01.272 [main] INFO  base.BasePage - Retrieved text: Products
+2026-03-03 19:11:01.275 [main] INFO  tests.BaseTest - Test: Valid Login Completed Successfully
+2026-03-03 19:11:01.282 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 19:11:01.282 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 19:11:01.476 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 19:11:01.479 [main] INFO  tests.BaseTest - === Test Setup Started ===
+2026-03-03 19:11:01.479 [main] INFO  base.DriverFactory - Initializing driver for browser: chrome
+2026-03-03 19:11:02.125 [main] INFO  base.DriverFactory - Driver initialized successfully
+2026-03-03 19:11:02.480 [main] INFO  tests.BaseTest - Navigated to: https://www.saucedemo.com
+2026-03-03 19:11:02.480 [main] INFO  tests.BaseTest - === Test Setup Completed ===
+2026-03-03 19:11:02.482 [main] INFO  tests.BaseTest - Test: Invalid Login Started
+2026-03-03 19:11:02.483 [main] INFO  base.BasePage - Performing login with username: invalid_user
+2026-03-03 19:11:02.483 [main] INFO  base.BasePage - Entering username: invalid_user
+2026-03-03 19:11:02.651 [main] INFO  base.BasePage - Typed text: invalid_user
+2026-03-03 19:11:02.652 [main] INFO  base.BasePage - Entering password
+2026-03-03 19:11:02.752 [main] INFO  base.BasePage - Typed text: wrong_password
+2026-03-03 19:11:02.752 [main] INFO  base.BasePage - Clicking login button
+2026-03-03 19:11:02.913 [main] INFO  base.BasePage - Clicked on element: [[ChromeDriver: chrome on windows (c3a0bb74b515d7c348b8e14fab23efa1)] -> id: login-button]
+2026-03-03 19:11:02.950 [main] INFO  tests.BaseTest - Test: Invalid Login Completed Successfully
+2026-03-03 19:11:02.952 [main] INFO  tests.BaseTest - === Test Teardown Started ===
+2026-03-03 19:11:02.952 [main] INFO  base.DriverFactory - Quitting driver
+2026-03-03 19:11:03.088 [main] INFO  tests.BaseTest - === Test Teardown Completed ===
+2026-03-03 19:30:02.422 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:30:02.424 [main] INFO  listeners.TestListener - Test Suite Started: Excel-Based Login Tests
+2026-03-03 19:30:02.424 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:30:02.427 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 19:30:02.548 [main] ERROR utils.ExcelReader - Error reading Excel file: src\test\resources\testdata\LoginTestData.xlsx (The system cannot find the file specified)
+2026-03-03 19:30:02.549 [main] ERROR listeners.TestListener - Test Failed: testLoginWithExcelData
+2026-03-03 19:30:02.549 [main] ERROR listeners.TestListener - Failure Reason: java.lang.RuntimeException: java.lang.RuntimeException: Failed to read Excel file
+2026-03-03 19:30:02.550 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:30:02.550 [main] INFO  listeners.TestListener - Test Suite Finished: Excel-Based Login Tests
+2026-03-03 19:30:02.550 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:30:02.717 [main] INFO  listeners.TestListener - Extent Report generated at: reports\AutomationTestReport_20260303_193002.html
+2026-03-03 19:31:19.668 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:31:19.670 [main] INFO  listeners.TestListener - Test Suite Started: Excel-Based Login Tests
+2026-03-03 19:31:19.670 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:31:19.672 [main] INFO  config.ConfigReader - Configuration file loaded successfully
+2026-03-03 19:31:19.773 [main] ERROR utils.ExcelReader - Error reading Excel file: src\test\resources\testdata\LoginTestData.xlsx (The system cannot find the file specified)
+2026-03-03 19:31:19.774 [main] ERROR listeners.TestListener - Test Failed: testLoginWithExcelData
+2026-03-03 19:31:19.774 [main] ERROR listeners.TestListener - Failure Reason: java.lang.RuntimeException: java.lang.RuntimeException: Failed to read Excel file
+2026-03-03 19:31:19.775 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:31:19.775 [main] INFO  listeners.TestListener - Test Suite Finished: Excel-Based Login Tests
+2026-03-03 19:31:19.775 [main] INFO  listeners.TestListener - ========================================
+2026-03-03 19:31:19.932 [main] INFO  listeners.TestListener - Extent Report generated at: reports\AutomationTestReport_20260303_193119.html

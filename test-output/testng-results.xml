@@ -1,203 +1,475 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="10" passed="5" failed="5" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-04T10:10:19 IST" name="SauceDemo Login Test Suite" finished-at="2026-03-04T10:17:03 IST" duration-ms="403764">
+  <suite started-at="2026-03-04T12:13:25 IST" name="SauceDemo E2E Test Suite" finished-at="2026-03-04T12:16:40 IST" duration-ms="195249">
     <groups>
     </groups>
-    <test started-at="2026-03-04T10:10:19 IST" name="Data Driven Login Tests" finished-at="2026-03-04T10:17:03 IST" duration-ms="403764">
+    <test started-at="2026-03-04T12:13:25 IST" name="E2E Data Driven Tests" finished-at="2026-03-04T12:16:40 IST" duration-ms="195249">
       <class name="tests.ExcelLoginTestData">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:20 IST" name="setUp" finished-at="2026-03-04T10:10:34 IST" duration-ms="14287" status="PASS">
+        <test-method is-config="true" signature="createScreenshotFolder()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:13:25 IST" name="createScreenshotFolder" finished-at="2026-03-04T12:13:25 IST" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createScreenshotFolder -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:13:26 IST" name="setUp" finished-at="2026-03-04T12:13:27 IST" duration-ms="1444" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:34 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:10:35 IST" duration-ms="781" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:13:27 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:13:47 IST" duration-ms="20247" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Valid Login 1, Username=standard_user, Password=secret_sauce, ExpectedResult=success, Description=Standard user with valid credentials}]]>
+                <![CDATA[{TestCase=Login Test, Username=standard_user, Password=secret_sauce, ExpectedResult=pass, TestType=login, FirstName=, LastName=, PostalCode=, Description=Valid login test}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:35 IST" name="tearDown" finished-at="2026-03-04T10:10:35 IST" duration-ms="261" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:13:47 IST" name="tearDown" finished-at="2026-03-04T12:13:48 IST" duration-ms="162" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=SUCCESS method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:35 IST" name="setUp" finished-at="2026-03-04T10:10:48 IST" duration-ms="12241" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:13:48 IST" name="setUp" finished-at="2026-03-04T12:13:49 IST" duration-ms="1100" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:48 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:10:49 IST" duration-ms="1142" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:13:49 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:14:05 IST" duration-ms="15935" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Valid Login 2, Username=problem_user, Password=secret_sauce, ExpectedResult=success, Description=Problem user with valid credentials}]]>
+                <![CDATA[{TestCase=Add to Cart Test, Username=standard_user, Password=secret_sauce, ExpectedResult=pass, TestType=addtocart, FirstName=, LastName=, PostalCode=, Description=Add products to cart test}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:49 IST" name="tearDown" finished-at="2026-03-04T10:10:49 IST" duration-ms="246" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:05 IST" name="tearDown" finished-at="2026-03-04T12:14:05 IST" duration-ms="200" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=SUCCESS method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:49 IST" name="setUp" finished-at="2026-03-04T10:10:57 IST" duration-ms="7691" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:05 IST" name="setUp" finished-at="2026-03-04T12:14:06 IST" duration-ms="1050" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:10:57 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:11:03 IST" duration-ms="6228" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:06 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:14:27 IST" duration-ms="20876" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Valid Login 3, Username=performance_glitch_user, Password=secret_sauce, ExpectedResult=success, Description=Performance glitch user}]]>
+                <![CDATA[{TestCase=Checkout Test, Username=standard_user, Password=secret_sauce, ExpectedResult=pass, TestType=checkout, FirstName=John, LastName=Doe, PostalCode=12345, Description=Complete checkout test}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:11:03 IST" name="tearDown" finished-at="2026-03-04T10:11:03 IST" duration-ms="218" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:27 IST" name="tearDown" finished-at="2026-03-04T12:14:27 IST" duration-ms="169" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=SUCCESS method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:11:03 IST" name="setUp" finished-at="2026-03-04T10:11:19 IST" duration-ms="16227" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:27 IST" name="setUp" finished-at="2026-03-04T12:14:28 IST" duration-ms="1022" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:11:19 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:11:21 IST" duration-ms="1126" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:28 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:14:42 IST" duration-ms="13659" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Valid Login 4, Username=error_user, Password=secret_sauce, ExpectedResult=success, Description=Error user with valid credentials}]]>
+                <![CDATA[{TestCase=Order Complete Test, Username=standard_user, Password=secret_sauce, ExpectedResult=pass, TestType=fullorder, FirstName=John, LastName=Doe, PostalCode=12345, Description=Full order completion test}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:11:21 IST" name="tearDown" finished-at="2026-03-04T10:11:21 IST" duration-ms="253" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:42 IST" name="tearDown" finished-at="2026-03-04T12:14:42 IST" duration-ms="237" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=SUCCESS method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:11:21 IST" name="setUp" finished-at="2026-03-04T10:12:06 IST" duration-ms="44977" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:42 IST" name="setUp" finished-at="2026-03-04T12:14:43 IST" duration-ms="1151" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:06 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:12:07 IST" duration-ms="1206" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:14:43 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:15:03 IST" duration-ms="19699" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Valid Login 5, Username=visual_user, Password=secret_sauce, ExpectedResult=success, Description=Visual user with valid credentials}]]>
+                <![CDATA[{TestCase=Valid User Test, Username=standard_user, Password=secret_sauce, ExpectedResult=pass, TestType=login, FirstName=, LastName=, PostalCode=, Description=Another valid login test}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:07 IST" name="tearDown" finished-at="2026-03-04T10:12:07 IST" duration-ms="238" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:15:03 IST" name="tearDown" finished-at="2026-03-04T12:15:03 IST" duration-ms="217" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=SUCCESS method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:07 IST" name="setUp" finished-at="2026-03-04T10:12:37 IST" duration-ms="29517" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:15:03 IST" name="setUp" finished-at="2026-03-04T12:15:04 IST" duration-ms="1013" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:37 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:12:37 IST" duration-ms="322" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:15:04 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:15:11 IST" duration-ms="7164" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Invalid Login 1, Username=invalid_user, Password=secret_sauce, ExpectedResult=failed, Description=Invalid username}]]>
+                <![CDATA[{TestCase=Invalid Credentials 1, Username=invalid_user, Password=secret_sauce, ExpectedResult=fail, TestType=loginfail, FirstName=, LastName=, PostalCode=, Description=Invalid username - MUST FAIL}]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[LOGIN FAILED! Expected to reach inventory page but got error. User: invalid_user expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: LOGIN FAILED! Expected to reach inventory page but got error. User: invalid_user expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at tests.ExcelLoginTestData.executeLoginFailTest(ExcelLoginTestData.java:370)
+at tests.ExcelLoginTestData.ecommerceTest(ExcelLoginTestData.java:114)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:37 IST" name="tearDown" finished-at="2026-03-04T10:12:37 IST" duration-ms="254" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:15:11 IST" name="tearDown" finished-at="2026-03-04T12:15:11 IST" duration-ms="306" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=FAILURE method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:37 IST" name="setUp" finished-at="2026-03-04T10:12:44 IST" duration-ms="6840" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:15:11 IST" name="setUp" finished-at="2026-03-04T12:15:13 IST" duration-ms="1156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:44 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:12:45 IST" duration-ms="458" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:15:13 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:16:07 IST" duration-ms="54565" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Invalid Login 2, Username=standard_user, Password=wrong_password, ExpectedResult=failed, Description=Invalid password}]]>
+                <![CDATA[{TestCase=Invalid Credentials 2, Username=standard_user, Password=wrong_password, ExpectedResult=fail, TestType=loginfail, FirstName=, LastName=, PostalCode=, Description=Invalid password - MUST FAIL}]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[LOGIN FAILED! Expected to reach inventory page but got error. User: standard_user expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: LOGIN FAILED! Expected to reach inventory page but got error. User: standard_user expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at tests.ExcelLoginTestData.executeLoginFailTest(ExcelLoginTestData.java:370)
+at tests.ExcelLoginTestData.ecommerceTest(ExcelLoginTestData.java:114)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:45 IST" name="tearDown" finished-at="2026-03-04T10:12:45 IST" duration-ms="199" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:07 IST" name="tearDown" finished-at="2026-03-04T12:16:07 IST" duration-ms="317" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=FAILURE method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:12:45 IST" name="setUp" finished-at="2026-03-04T10:14:51 IST" duration-ms="126396" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:07 IST" name="setUp" finished-at="2026-03-04T12:16:09 IST" duration-ms="1075" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:14:51 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:14:52 IST" duration-ms="570" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:09 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:16:15 IST" duration-ms="6659" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Invalid Login 3, Username=, Password=secret_sauce, ExpectedResult=failed, Description=Empty username}]]>
+                <![CDATA[{TestCase=Empty Credentials Test, Username=, Password=, ExpectedResult=fail, TestType=loginfail, FirstName=, LastName=, PostalCode=, Description=Empty credentials - MUST FAIL}]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[LOGIN FAILED! Expected to reach inventory page but got error. User:  expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: LOGIN FAILED! Expected to reach inventory page but got error. User:  expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at tests.ExcelLoginTestData.executeLoginFailTest(ExcelLoginTestData.java:370)
+at tests.ExcelLoginTestData.ecommerceTest(ExcelLoginTestData.java:114)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:14:52 IST" name="tearDown" finished-at="2026-03-04T10:14:52 IST" duration-ms="192" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:15 IST" name="tearDown" finished-at="2026-03-04T12:16:15 IST" duration-ms="217" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=FAILURE method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:14:52 IST" name="setUp" finished-at="2026-03-04T10:16:35 IST" duration-ms="102931" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:15 IST" name="setUp" finished-at="2026-03-04T12:16:16 IST" duration-ms="1010" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:16:35 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:16:35 IST" duration-ms="488" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:16 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:16:17 IST" duration-ms="242" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Invalid Login 4, Username=standard_user, Password=, ExpectedResult=failed, Description=Empty password}]]>
+                <![CDATA[{TestCase=Invalid Website Test, Username=standard_user, Password=secret_sauce, ExpectedResult=fail, TestType=invalidurl, FirstName=, LastName=, PostalCode=, Description=Invalid URL - MUST FAIL}]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[INVALID URL TEST FAILED! Could not load: https://www.invalidwebsite12345.com/. Error: unknown error: net::ERR_NAME_NOT_RESOLVED]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: INVALID URL TEST FAILED! Could not load: https://www.invalidwebsite12345.com/. Error: unknown error: net::ERR_NAME_NOT_RESOLVED
+at org.testng.Assert.fail(Assert.java:111)
+at tests.ExcelLoginTestData.executeInvalidUrlFailTest(ExcelLoginTestData.java:401)
+at tests.ExcelLoginTestData.ecommerceTest(ExcelLoginTestData.java:118)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:16:35 IST" name="tearDown" finished-at="2026-03-04T10:16:36 IST" duration-ms="222" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:17 IST" name="tearDown" finished-at="2026-03-04T12:16:17 IST" duration-ms="275" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=FAILURE method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:16:36 IST" name="setUp" finished-at="2026-03-04T10:17:02 IST" duration-ms="26539" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:17 IST" name="setUp" finished-at="2026-03-04T12:16:18 IST" duration-ms="1030" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:17:02 IST" name="loginTest" data-provider="loginData" finished-at="2026-03-04T10:17:03 IST" duration-ms="490" status="PASS">
+        <test-method signature="ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:18 IST" name="ecommerceTest" data-provider="loginData" finished-at="2026-03-04T12:16:40 IST" duration-ms="21965" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{TestCase=Invalid Login 5, Username=locked_out_user, Password=secret_sauce, ExpectedResult=locked, Description=Locked out user}]]>
+                <![CDATA[{TestCase=Invalid Details Test, Username=standard_user, Password=secret_sauce, ExpectedResult=fail, TestType=invaliddetails, FirstName=, LastName=, PostalCode=, Description=Empty checkout details - MUST FAIL}]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[CHECKOUT FAILED! Expected to reach checkout step 2 but validation prevented it. Empty details not allowed! expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: CHECKOUT FAILED! Expected to reach checkout step 2 but validation prevented it. Empty details not allowed! expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at tests.ExcelLoginTestData.executeInvalidDetailsFailTest(ExcelLoginTestData.java:445)
+at tests.ExcelLoginTestData.ecommerceTest(ExcelLoginTestData.java:122)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelLoginTestData@2f7298b]" started-at="2026-03-04T10:17:03 IST" name="tearDown" finished-at="2026-03-04T10:17:03 IST" duration-ms="157" status="PASS">
+        </test-method> <!-- ecommerceTest -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e]" started-at="2026-03-04T12:16:40 IST" name="tearDown" finished-at="2026-03-04T12:16:40 IST" duration-ms="299" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ecommerceTest status=FAILURE method=ExcelLoginTestData.ecommerceTest(java.util.Map)[pri:0, instance:tests.ExcelLoginTestData@15ff3e9e] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.ExcelLoginTestData -->
-    </test> <!-- Data Driven Login Tests -->
-  </suite> <!-- SauceDemo Login Test Suite -->
+    </test> <!-- E2E Data Driven Tests -->
+  </suite> <!-- SauceDemo E2E Test Suite -->
 </testng-results>

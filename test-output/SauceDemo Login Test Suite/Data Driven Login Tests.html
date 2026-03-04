@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Data Driven Login Tests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>10/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/10/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Mar 04 10:10:19 IST 2026</td>
+<td>Started on:</td><td>Wed Mar 04 10:49:37 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>403 seconds (403764 ms)</td>
+<tr><td>Total time:</td><td>201 seconds (201985 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,55 +76,415 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 2, Username=problem_user, Password=secret_sauce, ExpectedResult=success, Description=Problem user with valid credentials}</td>
-<td></td>
-<td>1</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 2, Username=standard_user, Password=wrong_password, ExpectedResult=failed, Description=Invalid password}</td>
+<td><div><pre>java.lang.AssertionError: Login failed for user: standard_user. Error: Epic sadface: Username and password do not match any user in this service
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace786036472", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace786036472'><pre>java.lang.AssertionError: Login failed for user: standard_user. Error: Epic sadface: Username and password do not match any user in this service
+	at org.testng.Assert.fail(Assert.java:111)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>9</td>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 2, Username=standard_user, Password=wrong_password, ExpectedResult=failed, Description=Invalid password}</td>
-<td></td>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 4, Username=error_user, Password=secret_sauce, ExpectedResult=success, Description=Error user with valid credentials}</td>
+<td><div><pre>java.lang.AssertionError: Should be on Cart page expected [Your Cart] but found [Products]
+	at tests.ExcelLoginTestData.goToCart(ExcelLoginTestData.java:176)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace736236438", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace736236438'><pre>java.lang.AssertionError: Should be on Cart page expected [Your Cart] but found [Products]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at tests.ExcelLoginTestData.goToCart(ExcelLoginTestData.java:176)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:116)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
 <td>0</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 5, Username=locked_out_user, Password=secret_sauce, ExpectedResult=locked, Description=Locked out user}</td>
-<td></td>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 3, Username=, Password=secret_sauce, ExpectedResult=failed, Description=Empty username}</td>
+<td><div><pre>java.lang.AssertionError: Login failed for user: . Error: Epic sadface: Username is required
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1462350864", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1462350864'><pre>java.lang.AssertionError: Login failed for user: . Error: Epic sadface: Username is required
+	at org.testng.Assert.fail(Assert.java:111)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
 <td>0</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 3, Username=, Password=secret_sauce, ExpectedResult=failed, Description=Empty username}</td>
-<td></td>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 1, Username=standard_user, Password=secret_sauce, ExpectedResult=success, Description=Standard user with valid credentials}</td>
+<td><div><pre>java.lang.AssertionError: Cart should have 2 items expected [2] but found [1]
+	at tests.ExcelLoginTestData.addProductToCart(ExcelLoginTestData.java:162)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:113)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2008619427", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2008619427'><pre>java.lang.AssertionError: Cart should have 2 items expected [2] but found [1]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at tests.ExcelLoginTestData.addProductToCart(ExcelLoginTestData.java:162)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
 <td>0</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 5, Username=visual_user, Password=secret_sauce, ExpectedResult=success, Description=Visual user with valid credentials}</td>
-<td></td>
-<td>1</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
-<tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 4, Username=standard_user, Password=, ExpectedResult=failed, Description=Empty password}</td>
-<td></td>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 1, Username=invalid_user, Password=secret_sauce, ExpectedResult=failed, Description=Invalid username}</td>
+<td><div><pre>java.lang.AssertionError: Login failed for user: invalid_user. Error: Epic sadface: Username and password do not match any user in this service
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1106510750", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1106510750'><pre>java.lang.AssertionError: Login failed for user: invalid_user. Error: Epic sadface: Username and password do not match any user in this service
+	at org.testng.Assert.fail(Assert.java:111)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
 <td>0</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 3, Username=performance_glitch_user, Password=secret_sauce, ExpectedResult=success, Description=Performance glitch user}</td>
-<td></td>
-<td>6</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
-<tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 1, Username=invalid_user, Password=secret_sauce, ExpectedResult=failed, Description=Invalid username}</td>
-<td></td>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 2, Username=problem_user, Password=secret_sauce, ExpectedResult=success, Description=Problem user with valid credentials}</td>
+<td><div><pre>java.lang.AssertionError: Cart should have 2 items expected [2] but found [1]
+	at tests.ExcelLoginTestData.addProductToCart(ExcelLoginTestData.java:162)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:113)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace410931765", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace410931765'><pre>java.lang.AssertionError: Cart should have 2 items expected [2] but found [1]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at tests.ExcelLoginTestData.addProductToCart(ExcelLoginTestData.java:162)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
 <td>0</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 1, Username=standard_user, Password=secret_sauce, ExpectedResult=success, Description=Standard user with valid credentials}</td>
-<td></td>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 5, Username=locked_out_user, Password=secret_sauce, ExpectedResult=locked, Description=Locked out user}</td>
+<td><div><pre>java.lang.AssertionError: Login failed for user: locked_out_user. Error: Epic sadface: Sorry, this user has been locked out.
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace885465900", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace885465900'><pre>java.lang.AssertionError: Login failed for user: locked_out_user. Error: Epic sadface: Sorry, this user has been locked out.
+	at org.testng.Assert.fail(Assert.java:111)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
 <td>0</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 <tr>
-<td title='tests.ExcelLoginTestData.loginTest()'><b>loginTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 4, Username=error_user, Password=secret_sauce, ExpectedResult=success, Description=Error user with valid credentials}</td>
-<td></td>
-<td>1</td>
-<td>tests.ExcelLoginTestData@2f7298b</td></tr>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 5, Username=visual_user, Password=secret_sauce, ExpectedResult=success, Description=Visual user with valid credentials}</td>
+<td><div><pre>java.lang.AssertionError: Cart should have 2 items expected [2] but found [1]
+	at tests.ExcelLoginTestData.addProductToCart(ExcelLoginTestData.java:162)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:113)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1434151479", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1434151479'><pre>java.lang.AssertionError: Cart should have 2 items expected [2] but found [1]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at tests.ExcelLoginTestData.addProductToCart(ExcelLoginTestData.java:162)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
+<tr>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Valid Login 3, Username=performance_glitch_user, Password=secret_sauce, ExpectedResult=success, Description=Performance glitch user}</td>
+<td><div><pre>java.lang.AssertionError: Should be on Cart page expected [Your Cart] but found [Products]
+	at tests.ExcelLoginTestData.goToCart(ExcelLoginTestData.java:176)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1986677191", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1986677191'><pre>java.lang.AssertionError: Should be on Cart page expected [Your Cart] but found [Products]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at tests.ExcelLoginTestData.goToCart(ExcelLoginTestData.java:176)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:116)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>5</td>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
+<tr>
+<td title='tests.ExcelLoginTestData.loginAndCheckoutTest()'><b>loginAndCheckoutTest</b><br>Test class: tests.ExcelLoginTestData<br>Parameters: {TestCase=Invalid Login 4, Username=standard_user, Password=, ExpectedResult=failed, Description=Empty password}</td>
+<td><div><pre>java.lang.AssertionError: Login failed for user: standard_user. Error: Epic sadface: Password is required
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2146372416", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2146372416'><pre>java.lang.AssertionError: Login failed for user: standard_user. Error: Epic sadface: Password is required
+	at org.testng.Assert.fail(Assert.java:111)
+	at tests.ExcelLoginTestData.loginAndCheckoutTest(ExcelLoginTestData.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>tests.ExcelLoginTestData@6c80d78a</td></tr>
 </table><p>
 </body>
 </html>
