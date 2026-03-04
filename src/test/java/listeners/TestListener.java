@@ -4,64 +4,84 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class TestListener implements ITestListener {
+import utils.ExtentReportManager;
 
+public class TestListener implements ITestListener {
+    
+    private ExtentReports extent;
+    
     @Override
     public void onStart(ITestContext context) {
         System.out.println("========================================");
         System.out.println("🚀 Test Suite Started: " + context.getName());
         System.out.println("========================================");
-        ExtentReportManager.getInstance();
+        
+        extent = ExtentReportManager.getInstance();
     }
-
+    
     @Override
     public void onTestStart(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        ExtentTest test = ExtentReportManager.getInstance().createTest(testName);
-        ExtentReportManager.setTest(test);
-        System.out.println("\n🧪 Starting Test: " + testName);
+        System.out.println("\n🧪 Starting Test: " + result.getMethod().getMethodName());
+        
+        ExtentTest test = ExtentReportManager.createTest(
+            result.getMethod().getMethodName(),
+            result.getMethod().getDescription()
+        );
+        
+        test.info("Test execution started");
     }
-
+    
     @Override
     public void onTestSuccess(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        ExtentReportManager.getTest().log(Status.PASS, "TEST PASSED: " + testName);
-        System.out.println("✅ Test Passed: " + testName);
-    }
-
-    @Override
-    public void onTestFailure(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        ExtentReportManager.getTest().log(Status.FAIL, "TEST FAILED: " + testName);
+        System.out.println("✅ Test Passed: " + result.getMethod().getMethodName());
         
-        if (result.getThrowable() != null) {
-            ExtentReportManager.getTest().fail(result.getThrowable());
+        ExtentTest test = ExtentReportManager.getTest();
+        if (test != null) {
+            test.log(Status.PASS, "✅ Test Passed: " + result.getMethod().getMethodName());
         }
         
-        System.out.println("❌ Test Failed: " + testName);
+        ExtentReportManager.removeTest();
     }
-
+    
+    @Override
+    public void onTestFailure(ITestResult result) {
+        System.out.println("❌ Test Failed: " + result.getMethod().getMethodName());
+        System.out.println("❌ Reason: " + result.getThrowable().getMessage());
+        
+        ExtentTest test = ExtentReportManager.getTest();
+        if (test != null) {
+            test.log(Status.FAIL, "❌ Test Failed: " + result.getMethod().getMethodName());
+            test.log(Status.FAIL, result.getThrowable());
+        }
+        
+        ExtentReportManager.removeTest();
+    }
+    
     @Override
     public void onTestSkipped(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        ExtentReportManager.getTest().log(Status.SKIP, "TEST SKIPPED: " + testName);
-        System.out.println("⏭️ Test Skipped: " + testName);
+        System.out.println("⏭️ Test Skipped: " + result.getMethod().getMethodName());
+        
+        ExtentTest test = ExtentReportManager.getTest();
+        if (test != null) {
+            test.log(Status.SKIP, "⏭️ Test Skipped: " + result.getMethod().getMethodName());
+        }
+        
+        ExtentReportManager.removeTest();
     }
-
+    
     @Override
     public void onFinish(ITestContext context) {
-        ExtentReportManager.flushReports();
-        
         System.out.println("\n========================================");
-        System.out.println("📊 TEST SUITE COMPLETED");
-        System.out.println("========================================");
+        System.out.println("📊 Test Suite Completed: " + context.getName());
         System.out.println("✅ Passed: " + context.getPassedTests().size());
         System.out.println("❌ Failed: " + context.getFailedTests().size());
         System.out.println("⏭️ Skipped: " + context.getSkippedTests().size());
-        System.out.println("📊 Report: " + ExtentReportManager.getReportPath());
-        System.out.println("========================================\n");
+        System.out.println("========================================");
+        
+        ExtentReportManager.flush();
     }
 }
