@@ -19,9 +19,9 @@ public class BaseTest {
     public void setup() {
         logger.info("=== Test Setup Started ===");
         driver = DriverFactory.getDriver();
-        driver.get(ConfigReader.getUrl());
+        driver.get(ConfigReader.getBaseUrl());  // ✅ Changed from getUrl() to getBaseUrl()
         loginPage = new LoginPage(driver);
-        logger.info("Navigated to: " + ConfigReader.getUrl());
+        logger.info("Navigated to: " + ConfigReader.getBaseUrl());
         logger.info("=== Test Setup Completed ===");
     }
 

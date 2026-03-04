@@ -54,16 +54,17 @@ public class ExcelLoginTestData {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-blink-features=AutomationControlled");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--start-maximized");
-        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.NORMAL);
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-popup-blocking");
         
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
         
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         js = (JavascriptExecutor) driver;
@@ -96,246 +97,239 @@ public class ExcelLoginTestData {
         System.out.println("📋 Test Type: " + testType);
         System.out.println("==================================================\n");
         
-        switch (testType.toLowerCase()) {
-            case "login":
-                executeLoginTest(testCase, username, password);
-                break;
-            case "addtocart":
-                executeAddToCartTest(testCase, username, password);
-                break;
-            case "checkout":
-                executeCheckoutTest(testCase, username, password, firstName, lastName, postalCode);
-                break;
-            case "fullorder":
-                executeFullOrderTest(testCase, username, password, firstName, lastName, postalCode);
-                break;
-            case "loginfail":
-                // This test MUST FAIL - expects login to succeed but it won't
-                executeLoginFailTest(testCase, username, password);
-                break;
-            case "invalidurl":
-                // This test MUST FAIL - expects page to load but it won't
-                executeInvalidUrlFailTest(testCase);
-                break;
-            case "invaliddetails":
-                // This test MUST FAIL - expects checkout to succeed with empty details
-                executeInvalidDetailsFailTest(testCase, username, password);
-                break;
-            default:
-                System.out.println("⚠️ Unknown test type: " + testType);
-        }
-    }
-    
-    // ========== HELPER METHODS ==========
-    private void clickElement(WebElement element) {
         try {
-            element.click();
+            switch (testType.toLowerCase()) {
+                case "login":
+                    executeSimpleLoginTest(testCase, username, password);
+                    break;
+                case "addtocart":
+                    executeAddToCartTest(testCase, username, password);
+                    break;
+                case "checkout":
+                    executeCheckoutTest(testCase, username, password, firstName, lastName, postalCode);
+                    break;
+                case "fullorder":
+                    executeFullOrderTest(testCase, username, password, firstName, lastName, postalCode);
+                    break;
+                case "loginfail":
+                    executeLoginFailTest(testCase, username, password);
+                    break;
+                case "invalidurl":
+                    executeInvalidUrlFailTest(testCase);
+                    break;
+                case "invaliddetails":
+                    executeInvalidDetailsFailTest(testCase, username, password);
+                    break;
+                default:
+                    System.out.println("⚠️ Unknown test type: " + testType);
+            }
         } catch (Exception e) {
-            js.executeScript("arguments[0].click();", element);
+            System.out.println("❌ Unexpected error: " + e.getMessage());
+            throw e;
         }
     }
     
-    private void waitForPageLoad() {
-        wait.until(driver -> js.executeScript("return document.readyState").equals("complete"));
-        sleep(500);
-    }
-    
-    private void sleep(int milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-    
-    // ========== PASS: LOGIN TEST ==========
-    private void executeLoginTest(String testCase, String username, String password) {
+    // ========== 1. SIMPLE LOGIN TEST (PASS) ==========
+    private void executeSimpleLoginTest(String testCase, String username, String password) {
         System.out.println("📍 EXECUTING: LOGIN TEST (Expected: PASS)");
         
         driver.get(baseUrl);
-        waitForPageLoad();
+        waitForPageReady();
         System.out.println("✅ Opened URL: " + baseUrl);
         
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))).sendKeys(username);
+        WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
+        usernameField.clear();
+        usernameField.sendKeys(username);
         System.out.println("✅ Entered username: " + username);
         
         driver.findElement(By.id("password")).sendKeys(password);
-        System.out.println("✅ Entered password: " + password);
+        System.out.println("✅ Entered password");
         
-        clickElement(driver.findElement(By.id("login-button")));
+        jsClick(driver.findElement(By.id("login-button")));
         System.out.println("✅ Clicked Login button");
         
-        waitForPageLoad();
-        
+        waitForPageReady();
         wait.until(ExpectedConditions.urlContains("inventory"));
-        WebElement productsTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
-        Assert.assertEquals(productsTitle.getText(), "Products");
+        
+        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
+        Assert.assertEquals(title.getText(), "Products");
         System.out.println("✅ LOGIN SUCCESSFUL - Products page displayed");
         
         takeScreenshot("PASS_" + testCase);
     }
     
-    // ========== PASS: ADD TO CART TEST ==========
+    // ========== 2. ADD TO CART TEST (PASS) ==========
     private void executeAddToCartTest(String testCase, String username, String password) {
         System.out.println("📍 EXECUTING: ADD TO CART TEST (Expected: PASS)");
         
         driver.get(baseUrl);
-        waitForPageLoad();
-        System.out.println("✅ Opened URL: " + baseUrl);
+        waitForPageReady();
         
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
-        clickElement(driver.findElement(By.id("login-button")));
-        waitForPageLoad();
-        System.out.println("✅ LOGIN SUCCESSFUL");
+        jsClick(driver.findElement(By.id("login-button")));
+        waitForPageReady();
+        System.out.println("✅ Logged in");
         
-        System.out.println("\n📍 STEP: ADD PRODUCTS TO CART");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("inventory_list")));
-        
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("add-to-cart-sauce-labs-backpack"))));
-        System.out.println("✅ Added 'Sauce Labs Backpack' to cart");
         sleep(1000);
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("add-to-cart-sauce-labs-bike-light"))));
-        System.out.println("✅ Added 'Sauce Labs Bike Light' to cart");
-        sleep(1000);
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-backpack"))));
+        System.out.println("✅ Added Backpack");
+        sleep(1500);
         
-        WebElement cartBadge = wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.className("shopping_cart_badge")));
-        Assert.assertEquals(cartBadge.getText(), "2", "Cart should have 2 items");
-        System.out.println("✅ Cart badge shows: " + cartBadge.getText() + " items");
-        System.out.println("✅ ADD TO CART TEST PASSED");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-bike-light"))));
+        System.out.println("✅ Added Bike Light");
+        sleep(1500);
+        
+        WebElement cartBadge = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("shopping_cart_badge")));
+        Assert.assertEquals(cartBadge.getText(), "2");
+        System.out.println("✅ ADD TO CART PASSED - Cart has 2 items");
         
         takeScreenshot("PASS_" + testCase);
     }
     
-    // ========== PASS: CHECKOUT TEST ==========
+    // ========== 3. CHECKOUT TEST (PASS) - FIXED ==========
     private void executeCheckoutTest(String testCase, String username, String password, 
                                       String firstName, String lastName, String postalCode) {
         System.out.println("📍 EXECUTING: CHECKOUT TEST (Expected: PASS)");
         
         driver.get(baseUrl);
-        waitForPageLoad();
+        waitForPageReady();
         
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
-        clickElement(driver.findElement(By.id("login-button")));
-        waitForPageLoad();
-        System.out.println("✅ LOGIN SUCCESSFUL");
+        jsClick(driver.findElement(By.id("login-button")));
+        waitForPageReady();
+        System.out.println("✅ Logged in");
         
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("inventory_list")));
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("add-to-cart-sauce-labs-backpack"))));
-        System.out.println("✅ Added product to cart");
         sleep(1000);
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.className("shopping_cart_link"))));
-        waitForPageLoad();
-        System.out.println("✅ Cart page displayed");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-backpack"))));
+        System.out.println("✅ Added product");
+        sleep(1500);
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))));
-        waitForPageLoad();
-        System.out.println("✅ Checkout page displayed");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.className("shopping_cart_link"))));
+        waitForPageReady();
+        System.out.println("✅ Opened cart");
         
-        driver.findElement(By.id("first-name")).sendKeys(firstName);
-        driver.findElement(By.id("last-name")).sendKeys(lastName);
-        driver.findElement(By.id("postal-code")).sendKeys(postalCode);
-        System.out.println("✅ Filled checkout information");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))));
+        waitForPageReady();
+        System.out.println("✅ Clicked checkout");
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("continue"))));
-        waitForPageLoad();
+        // Fill form with explicit waits
+        WebElement firstNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("first-name")));
+        firstNameField.clear();
+        firstNameField.sendKeys(firstName);
+        sleep(500);
+        
+        WebElement lastNameField = driver.findElement(By.id("last-name"));
+        lastNameField.clear();
+        lastNameField.sendKeys(lastName);
+        sleep(500);
+        
+        WebElement postalCodeField = driver.findElement(By.id("postal-code"));
+        postalCodeField.clear();
+        postalCodeField.sendKeys(postalCode);
+        sleep(500);
+        
+        System.out.println("✅ Filled checkout form");
+        
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("continue"))));
+        waitForPageReady();
+        sleep(2000); // Extra wait for overview page
         
         WebElement overviewTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
         Assert.assertEquals(overviewTitle.getText(), "Checkout: Overview");
-        System.out.println("✅ CHECKOUT TEST PASSED - Overview page displayed");
+        System.out.println("✅ CHECKOUT TEST PASSED - Overview displayed");
         
         takeScreenshot("PASS_" + testCase);
     }
     
-    // ========== PASS: FULL ORDER TEST ==========
+    // ========== 4. FULL ORDER TEST (PASS) - FIXED ==========
     private void executeFullOrderTest(String testCase, String username, String password,
                                        String firstName, String lastName, String postalCode) {
         System.out.println("📍 EXECUTING: FULL ORDER TEST (Expected: PASS)");
-        System.out.println("🛒 Complete E2E Flow: Login → Add to Cart → Cart → Checkout → Order Complete\n");
         
         driver.get(baseUrl);
-        waitForPageLoad();
+        waitForPageReady();
         
-        // LOGIN
-        System.out.println("📍 STEP 1: LOGIN");
+        // Login
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
-        clickElement(driver.findElement(By.id("login-button")));
-        waitForPageLoad();
-        System.out.println("✅ Login successful");
+        jsClick(driver.findElement(By.id("login-button")));
+        waitForPageReady();
+        System.out.println("✅ Step 1: Logged in");
         
-        // ADD TO CART
-        System.out.println("\n📍 STEP 2: ADD PRODUCTS TO CART");
+        // Add products
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("inventory_list")));
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("add-to-cart-sauce-labs-backpack"))));
-        System.out.println("✅ Added 'Sauce Labs Backpack'");
         sleep(1000);
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("add-to-cart-sauce-labs-bike-light"))));
-        System.out.println("✅ Added 'Sauce Labs Bike Light'");
-        sleep(1000);
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-backpack"))));
+        sleep(1500);
         
-        // GO TO CART
-        System.out.println("\n📍 STEP 3: GO TO CART");
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.className("shopping_cart_link"))));
-        waitForPageLoad();
-        System.out.println("✅ Cart page displayed");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-bike-light"))));
+        sleep(1500);
+        System.out.println("✅ Step 2: Added products");
         
-        // CHECKOUT
-        System.out.println("\n📍 STEP 4: PROCEED TO CHECKOUT");
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))));
-        waitForPageLoad();
-        System.out.println("✅ Checkout page displayed");
+        // Cart
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.className("shopping_cart_link"))));
+        waitForPageReady();
+        System.out.println("✅ Step 3: Opened cart");
         
-        // FILL INFO
-        System.out.println("\n📍 STEP 5: FILL CHECKOUT INFORMATION");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("first-name"))).sendKeys(firstName);
+        // Checkout
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))));
+        waitForPageReady();
+        System.out.println("✅ Step 4: Started checkout");
+        
+        // Fill form
+        WebElement firstNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("first-name")));
+        firstNameField.clear();
+        firstNameField.sendKeys(firstName);
+        sleep(500);
+        
         driver.findElement(By.id("last-name")).sendKeys(lastName);
+        sleep(500);
+        
         driver.findElement(By.id("postal-code")).sendKeys(postalCode);
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("continue"))));
-        waitForPageLoad();
-        System.out.println("✅ Information filled");
+        sleep(500);
         
-        // OVERVIEW
-        System.out.println("\n📍 STEP 6: CHECKOUT OVERVIEW");
-        WebElement subtotal = wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.className("summary_subtotal_label")));
-        System.out.println("   " + subtotal.getText());
-        WebElement total = driver.findElement(By.className("summary_total_label"));
-        System.out.println("   " + total.getText());
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("continue"))));
+        waitForPageReady();
+        sleep(2000);
+        System.out.println("✅ Step 5: Filled information");
         
-        // FINISH
-        System.out.println("\n📍 STEP 7: FINISH ORDER");
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("finish"))));
-        waitForPageLoad();
+        // Verify overview page is loaded
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("summary_info")));
+        System.out.println("✅ Step 6: Overview page loaded");
         
-        // VERIFY ORDER COMPLETE
-        System.out.println("\n📍 STEP 8: VERIFY ORDER CONFIRMATION");
+        // Click Finish with extra waits
+        WebElement finishButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("finish")));
+        scrollToElement(finishButton);
+        sleep(1000);
+        jsClick(finishButton);
+        waitForPageReady();
+        sleep(2000);
+        System.out.println("✅ Step 7: Clicked finish");
+        
+        // Verify order complete
         WebElement thankYou = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("complete-header")));
         Assert.assertEquals(thankYou.getText(), "Thank you for your order!");
-        System.out.println("✅ " + thankYou.getText());
+        System.out.println("✅ Step 8: ORDER COMPLETE!");
+        System.out.println("🎉🎉🎉 FULL ORDER TEST PASSED! 🎉🎉🎉");
         
-        takeScreenshot("PASS_Order_Complete_" + testCase);
-        System.out.println("\n🎉🎉🎉 ORDER PLACED SUCCESSFULLY! 🎉🎉🎉\n");
+        takeScreenshot("PASS_" + testCase);
     }
     
-    // ========== FAIL: LOGIN FAIL TEST (Invalid Credentials) ==========
+    // ========== 5. LOGIN FAIL TEST (FAIL) ==========
     private void executeLoginFailTest(String testCase, String username, String password) {
         System.out.println("📍 EXECUTING: LOGIN FAIL TEST (Expected: FAIL)");
-        System.out.println("⚠️ This test will INTENTIONALLY FAIL to demonstrate failure handling\n");
+        System.out.println("⚠️ This test will INTENTIONALLY FAIL\n");
         
         driver.get(baseUrl);
-        waitForPageLoad();
-        System.out.println("✅ Opened URL: " + baseUrl);
+        waitForPageReady();
+        System.out.println("✅ Opened URL");
         
         WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name")));
         usernameField.clear();
@@ -350,103 +344,112 @@ public class ExcelLoginTestData {
         passwordField.clear();
         if (password != null && !password.isEmpty()) {
             passwordField.sendKeys(password);
-            System.out.println("✅ Entered password: " + password);
+            System.out.println("✅ Entered password");
         } else {
             System.out.println("⚠️ Password is empty");
         }
         
-        clickElement(driver.findElement(By.id("login-button")));
-        System.out.println("✅ Clicked Login button");
+        jsClick(driver.findElement(By.id("login-button")));
+        sleep(2000);
         
-        sleep(1000);
-        
-        // This assertion will FAIL because login will fail with invalid credentials
-        // We're asserting that URL contains "inventory" but it won't!
         String currentUrl = driver.getCurrentUrl();
         System.out.println("❌ Current URL: " + currentUrl);
-        System.out.println("❌ Expected URL to contain 'inventory' but login failed!");
+        System.out.println("❌ Login should have failed!");
         
-        // This WILL FAIL - causing the test to fail
         Assert.assertTrue(currentUrl.contains("inventory"), 
-            "LOGIN FAILED! Expected to reach inventory page but got error. User: " + username);
+            "LOGIN SHOULD FAIL! User: " + username);
     }
     
-    // ========== FAIL: INVALID URL TEST ==========
+    // ========== 6. INVALID URL TEST (FAIL) ==========
     private void executeInvalidUrlFailTest(String testCase) {
         System.out.println("📍 EXECUTING: INVALID URL TEST (Expected: FAIL)");
-        System.out.println("⚠️ This test will INTENTIONALLY FAIL - trying to load invalid URL\n");
+        System.out.println("⚠️ This test will INTENTIONALLY FAIL\n");
         
         try {
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
             driver.get(invalidUrl);
-            System.out.println("⏳ Trying to load: " + invalidUrl);
-            
-            // Wait a bit
             sleep(2000);
-            
-            // Try to find an element that won't exist
-            // This assertion WILL FAIL because the page won't load
-            WebElement body = driver.findElement(By.tagName("body"));
-            String pageSource = body.getText();
-            
-            System.out.println("❌ Page should not have loaded!");
-            
-            // This WILL FAIL - the page won't have "Welcome" text
-            Assert.assertTrue(pageSource.contains("Welcome to valid website"), 
-                "INVALID URL TEST FAILED! Page did not load properly as expected.");
-            
+            System.out.println("❌ Invalid URL should not load!");
+            Assert.fail("INVALID URL SHOULD FAIL!");
         } catch (Exception e) {
-            System.out.println("❌ Error occurred: " + e.getMessage().split("\n")[0]);
-            // Re-throw to make test fail
-            Assert.fail("INVALID URL TEST FAILED! Could not load: " + invalidUrl + ". Error: " + e.getMessage().split("\n")[0]);
+            System.out.println("❌ Error: " + e.getMessage().split("\n")[0]);
+            Assert.fail("INVALID URL TEST FAILED! Error: " + e.getMessage().split("\n")[0]);
         }
     }
     
-    // ========== FAIL: INVALID DETAILS TEST ==========
+    // ========== 7. INVALID DETAILS TEST (FAIL) ==========
     private void executeInvalidDetailsFailTest(String testCase, String username, String password) {
         System.out.println("📍 EXECUTING: INVALID DETAILS TEST (Expected: FAIL)");
-        System.out.println("⚠️ This test will INTENTIONALLY FAIL - trying checkout with empty details\n");
+        System.out.println("⚠️ This test will INTENTIONALLY FAIL\n");
         
         driver.get(baseUrl);
-        waitForPageLoad();
+        waitForPageReady();
         
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
-        clickElement(driver.findElement(By.id("login-button")));
-        waitForPageLoad();
-        System.out.println("✅ Login successful");
+        jsClick(driver.findElement(By.id("login-button")));
+        waitForPageReady();
+        System.out.println("✅ Logged in");
         
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("inventory_list")));
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("add-to-cart-sauce-labs-backpack"))));
-        System.out.println("✅ Added product to cart");
         sleep(1000);
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.className("shopping_cart_link"))));
-        waitForPageLoad();
-        System.out.println("✅ Cart page displayed");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-backpack"))));
+        sleep(1500);
+        System.out.println("✅ Added product");
         
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))));
-        waitForPageLoad();
-        System.out.println("✅ Checkout page displayed");
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.className("shopping_cart_link"))));
+        waitForPageReady();
+        System.out.println("✅ Opened cart");
         
-        // DON'T fill any details - just click continue
-        System.out.println("\n📍 ATTEMPTING CHECKOUT WITH EMPTY DETAILS");
-        clickElement(wait.until(ExpectedConditions.elementToBeClickable(By.id("continue"))));
+        jsClick(wait.until(ExpectedConditions.elementToBeClickable(By.id("checkout"))));
+        waitForPageReady();
+        System.out.println("✅ Checkout page opened");
         
+        System.out.println("❌ Attempting checkout with EMPTY details");
+        jsClick(driver.findElement(By.id("continue")));
         sleep(1000);
         
-        // This assertion WILL FAIL because checkout won't succeed with empty details
         String currentUrl = driver.getCurrentUrl();
         System.out.println("❌ Current URL: " + currentUrl);
-        System.out.println("❌ Expected to reach 'checkout-step-two' but validation failed!");
+        System.out.println("❌ Should NOT proceed with empty details!");
         
-        // This WILL FAIL - we won't reach step two without filling details
         Assert.assertTrue(currentUrl.contains("checkout-step-two"), 
-            "CHECKOUT FAILED! Expected to reach checkout step 2 but validation prevented it. Empty details not allowed!");
+            "CHECKOUT SHOULD FAIL! Empty details not allowed!");
     }
     
-    // ========== TAKE SCREENSHOT ==========
+    // ========== HELPER METHODS ==========
+    private void waitForPageReady() {
+        try {
+            wait.until(driver -> js.executeScript("return document.readyState").equals("complete"));
+            sleep(500);
+        } catch (Exception e) {
+            // Ignore
+        }
+    }
+    
+    private void jsClick(WebElement element) {
+        try {
+            js.executeScript("arguments[0].scrollIntoView(true);", element);
+            sleep(300);
+            js.executeScript("arguments[0].click();", element);
+        } catch (Exception e) {
+            element.click();
+        }
+    }
+    
+    private void scrollToElement(WebElement element) {
+        js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+    }
+    
+    private void sleep(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+    
     public String takeScreenshot(String testName) {
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
@@ -479,7 +482,6 @@ public class ExcelLoginTestData {
             testName = testData.get("TestCase");
         }
         
-        // Take screenshot on FAILURE
         if (result.getStatus() == ITestResult.FAILURE) {
             System.out.println("\n❌❌❌ TEST FAILED: " + testName + " ❌❌❌");
             takeScreenshot("FAILED_" + testName);
